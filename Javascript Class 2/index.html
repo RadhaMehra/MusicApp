@@ -45,6 +45,16 @@
 				$('#name-input').addClass('error');
 				}
 				});
+				$('.play-icon').on('click',function(){
+				console.log{'playing');
+				var song= document.querySelector('audio');
+				song.play();
+				});
+				$('.play-icon').on('click', function(){
+				console.log('pausing');
+				var song=document.querySelector('audio');
+				song.pause();
+				});
 </script>
 </body>
 

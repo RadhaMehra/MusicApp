@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Music App</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+	<script>
+	setTimeout(function(){   //set time to execute the code after 5 seconds
+	var name;
+	name= document.querySelector('#name-input').value;
+	
+	var button = document.querySelector('.welcome-screen button');
+
+		button.addEventListener('click',function() {
+		alert('You clicked me');
+		});
+	
+	});
+	</script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="welcome-screen">
+            <h1> Welcome to Songify </h1>
+            <h3> Enter name to access your account </h3>
+            <div class="input-wrapper">
+                <input type="text" placeholder="Name" id="name-input" value="tanya">
+                <button class="btn"> Go </button>
+            </div>
+        </section>
+        <section class="main hidden">
+            <h1>  </h1>
+        </section>
+    </div>
+</body>
+</html>

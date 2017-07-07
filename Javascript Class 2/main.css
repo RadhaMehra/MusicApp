@@ -21,7 +21,9 @@ h1 {
 .wrapper {
     height: 100%;
     width: 100%;
-    background-color: #BBB;
+    background: url("http://hdwallpapersrocks.com/wp-content/uploads/2013/10/Earphone-colors-splash-theme-HD-wallpapers.jpg");
+	background-position:cover;
+	background-position:center;
 }
 
 .welcome-screen {
@@ -79,7 +81,7 @@ h1 {
 }
 
 .error {
-    border:2px solid red;
+    border: 2px solid red;
 }
 
 .play-icon {

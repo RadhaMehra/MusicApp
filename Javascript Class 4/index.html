@@ -23,7 +23,7 @@
                 <div class="right floated user-name"> </div>
             </header>
             <section class="content">
-                <audio src="song.mp3"></audio>
+                <audio src="song1.mp3"></audio>
 				
                 <div class="list-headers">
         <div> Title </div> 
@@ -126,7 +126,8 @@
 				// var songName2 = 'Never Give Up';
 				 //var songName3 = 'My Heart will go on';
 				 //var songName4 = 'Despacito';
-				 var songlist=[ 'Jaanu', 'Never Give Up', 'My Heart will go on', 'Despacito'];
+				 var songlist=[ 'Jaanu', 'Dont let me down', 'My Heart will go on', 'Despacito'];
+				 var fileName=['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
 					window.onload = function() {
 					$('#song1 .song-name').text(songlist[0]);
 					$('#song2 .song-name').text(songlist[1]);
@@ -137,7 +138,68 @@
 					updateCurrentTime();
 					},1000);
 					}
-	
+					$('#song1').click(function() {
+					var audio = document.querySelector('audio');
+					//console.log(audio.src);
+					var currentSong = audio.src;
+					if(currentSong.search(fileName[0]) != -1)
+					{
+					//console.log('If statement executing');
+					toggleSong();
+					}
+					else {
+					//console.log('Else statement executing');
+					audio.src = fileName[0];
+					toggleSong();
+					}
+					});
+					$('#song2').click(function() {
+					var audio = document.querySelector('audio');
+					//console.log(audio.src);
+					var currentSong = audio.src;
+					if(currentSong.search(fileName[1]) != -1)
+					{
+					//console.log('If statement executing');
+					toggleSong();
+					}
+					else {
+					//console.log('Else statement executing');
+					audio.src = fileName[1];
+					toggleSong();
+					}
+					});
+
+					$('#song3').click(function() {
+					var audio = document.querySelector('audio');
+					//console.log(audio.src);
+					var currentSong = audio.src;
+					if(currentSong.search(fileName[2]) != -1)
+					{
+					//console.log('If statement executing');
+					toggleSong();
+					}
+					else {
+					//console.log('Else statement executing');
+					audio.src = fileName[2];
+					toggleSong();
+					}
+					});
+
+					$('#song4').click(function() {
+					var audio = document.querySelector('audio');
+					//console.log(audio.src);
+					var currentSong = audio.src;
+					if(currentSong.search(fileName[3]) != -1)
+					{
+					//console.log('If statement executing');
+					toggleSong();
+					}
+					else {
+					//console.log('Else statement executing');
+					audio.src = fileName[3];
+					toggleSong();
+					}
+					});
     $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 2) {

@@ -63,7 +63,7 @@ h1 {
 .player-buttons {
     display:flex;
     font-size: 1.5rem;
-    justify-content: center;
+   justify-content:center;
     align-items: center;
 }
 

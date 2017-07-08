@@ -49,6 +49,9 @@
 				 //var songName4 = 'Despacito';
 				 var songlist=[ 'Jaanu', 'Dont let me down', 'My Heart will go on', 'Despacito'];
 				 var fileName=['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+				 var artistList = ['Garry Sandhu', 'Chainsmokers', 'Celine Dion', 'Luis Fonsi']; 	
+				 var albumList = ['Jaanu','Collage','Titanic','Despacito'];
+				var durationList = ['4:13','3:15','2:34','2:29'];
 					window.onload = function() {
 					$('#song1 .song-name').text(songlist[0]);
 					$('#song2 .song-name').text(songlist[1]);
@@ -79,9 +82,17 @@
 					
 							addSongNameClickEvent(fileName[i],i+1);
 							toggleSong();
-							}				
+							}	
+					var artistList = ['Garry Sandhu', 'Chainsmokers', 'Celine Dion', 'Luis Fonsi']; 	
+					var albumList = ['Jaanu','Collage','Titanic','Despacito'];
+					var durationList = ['4:13','3:15','2:34','2:29'];						
+					$('#song1 .song-artist').text(artistList[0]);
+					$('#song2 .song-artist').text(artistList[1]);
+					$('#song3 .song-artist').text(artistList[2]);
+					$('#song4 .song-artist').text(artistList[3]);
 					
-    $('.welcome-screen button').on('click', function() {
+					
+		$('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 2) {
             var message = "Welcome, " + name;

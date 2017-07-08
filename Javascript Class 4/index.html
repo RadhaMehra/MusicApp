@@ -24,19 +24,38 @@
             </header>
             <section class="content">
                 <audio src="song.mp3"></audio>
+				
                 <div class="list-headers">
         <div> Title </div> 
         <div> Artist </div>
         <div> Album </div>
         <div> Duration </div>
         </div>
-        <div class="song-list">
-        <div class="song">
-        <span class="song-name"></span>
-        <span class="song-artist"></span>
-        <span class="song-album"></span>
-        <span class="song-length"></span>
-        </div>
+			<div class="song-list">
+			<div id="song1" class="song">
+			<span class="song-name"></span>
+			<!----<span class="song-artist"></span>
+			<span class="song-album"></span>
+			<span class="song-length"></span>--->
+			</div>
+			<div id="song2" class="song">
+			<span class="song-name"></span>
+			<!----<span class="song-artist"></span>
+			<span class="song-album"></span>
+			<span class="song-length"></span>--->
+			</div>
+			<div id="song3" class="song">
+			<span  class="song-name"></span>
+			<!----<span class="song-artist"></span>
+			<span class="song-album"></span>
+			<span class="song-length"></span>--->
+			</div>
+			<div id="song4" class="song">
+			<span class="song-name"></span>
+			<!----<span class="song-artist"></span>
+			<span class="song-album"></span>
+			<span class="song-length"></span>--->
+			</div>
         </div>
             </section>
             <footer>
@@ -103,15 +122,21 @@
 					$('.time-elapsed').text(currentTime);
 					$('.song-duration').text(duration);
 				}
-				 var songName = 'Tamma Song';
-
-				window.onload = function() {
-				$('.song-name').text(songName);
-				updateCurrentTime();
-				setInterval(function() {
-				updateCurrentTime();
-				},1000);
-				}
+				 //var songName1 = 'Jaanu';
+				// var songName2 = 'Never Give Up';
+				 //var songName3 = 'My Heart will go on';
+				 //var songName4 = 'Despacito';
+				 var songlist=[ 'Jaanu', 'Never Give Up', 'My Heart will go on', 'Despacito'];
+					window.onload = function() {
+					$('#song1 .song-name').text(songlist[0]);
+					$('#song2 .song-name').text(songlist[1]);
+					$('#song3 .song-name').text(songlist[2]);
+					$('#song4 .song-name').text(songlist[3]);
+					updateCurrentTime(); 
+					setInterval(function() {
+					updateCurrentTime();
+					},1000);
+					}
 	
     $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();

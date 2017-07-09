@@ -1,3 +1,17 @@
+	
+function validate() {
+  if(myform.fname.value.length==3)
+  {
+document.getElementById('errfn').innerHTML="Name should be greater than 3";
+  }
+ }
+
+
+	
+			
+	
+	
+	
 	function toggleSong() {							//created function to  reduce the writing code again n again
 		var song = document.querySelector('audio');
 		if(song.paused == true) {
@@ -123,8 +137,7 @@
 							song.find('.song-length').text(obj.duration); 
 							 addSongNameClickEvent(obj.fileName,i+1)
 						}
-					
-					
+								
 		$('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 2) {
@@ -144,3 +157,13 @@
                    toggleSong();
 				   }
             });
+			$('.next-icon').on('click',function(){
+				 toggleSong();
+			}
+			
+			$('.back-icon').on('click',function(){
+				 toggleSong();
+			});
+			
+			
+				

@@ -10,15 +10,16 @@
 
 <body>
     <div class="wrapper">
-        <section class="welcome-screen hidden">
+        <section class="welcome-screen">
             <h1> Welcome to Songify </h1>
             <h3> Enter name to access your account </h3>
-            <div class="input-wrapper">
+            <div class="input-wrapper" >
                 <input type="text" placeholder="Name" id="name-input">
+				
                 <button> Go </button>
             </div>
         </section>
-        <div class="main">
+        <div class="main hidden">
             <header>
                 <div class="right floated user-name"> </div>
             </header>
@@ -61,7 +62,11 @@
             <footer>
                 <div class="controls">
                     <div class="player-buttons">
-                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+					<span>
+               <i class="fa fa-backward clickable back-icon" aria-hidden="true"></i>
+				<i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+				<i class="fa fa-forward clickable next-icon" aria-hidden="true"></i>
+				</span>
                     </div>
                     <div class="progress-wrapper">
                         <span class="time-elapsed"> </span>

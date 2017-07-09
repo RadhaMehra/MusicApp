@@ -43,20 +43,11 @@
 					$('.time-elapsed').text(currentTime);
 					$('.song-duration').text(duration);
 				}
-				 //var songName1 = 'Jaanu';
-				// var songName2 = 'Never Give Up';
-				 //var songName3 = 'My Heart will go on';
-				 //var songName4 = 'Despacito';
-				 var songlist=[ 'Jaanu', 'Dont let me down', 'My Heart will go on', 'Despacito'];
-				 var fileName=['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
-				 var artistList = ['Garry Sandhu', 'Chainsmokers', 'Celine Dion', 'Luis Fonsi']; 	
-				 var albumList = ['Jaanu','Collage','Titanic','Despacito'];
-				var durationList = ['4:13','3:15','2:34','2:29'];
 					window.onload = function() {
-					$('#song1 .song-name').text(songlist[0]);
-					$('#song2 .song-name').text(songlist[1]);
-					$('#song3 .song-name').text(songlist[2]);
-					$('#song4 .song-name').text(songlist[3]);
+					//$('#song1 .song-name').text(songlist[0]);
+					//$('#song2 .song-name').text(songlist[1]);
+					//$('#song3 .song-name').text(songlist[2]);
+					//$('#song4 .song-name').text(songlist[3]);
 					updateCurrentTime(); 
 					setInterval(function() {
 					updateCurrentTime();
@@ -77,19 +68,61 @@
 						}
 						});
 						}
-							for(i=0; i<fileName.length; i++)
+						//var songName1 = 'Jaanu';
+				// var songName2 = 'Never Give Up';
+				 //var songName3 = 'My Heart will go on';
+				 //var songName4 = 'Despacito';
+				 var songlist=[ 'Jaanu', 'Dont let me down', 'My Heart will go on', 'Despacito'];
+				 //var fileName=['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+				 //var artistList = ['Garry Sandhu', 'Chainsmokers', 'Celine Dion', 'Luis Fonsi']; 	
+				// var albumList = ['Jaanu','Collage','Titanic','Despacito'];
+				//var durationList = ['4:13','3:28','5:10','4:41'];
+					//for(i=0; i<fileName.length; i++)
+								//{
+						
+								//addSongNameClickEvent(fileName[i],i+1);
+								//toggleSong();
+								//}
+						var songs = [{
+								'name': 'Jaanu',
+								'artist': 'Garry Sandhu',
+								'album': 'Jaanu',
+								'duration': '4:13',
+							   'fileName': 'song1.mp3'
+							},
 							{
-					
-							addSongNameClickEvent(fileName[i],i+1);
-							toggleSong();
-							}	
-					var artistList = ['Garry Sandhu', 'Chainsmokers', 'Celine Dion', 'Luis Fonsi']; 	
-					var albumList = ['Jaanu','Collage','Titanic','Despacito'];
-					var durationList = ['4:13','3:15','2:34','2:29'];						
-					$('#song1 .song-artist').text(artistList[0]);
-					$('#song2 .song-artist').text(artistList[1]);
-					$('#song3 .song-artist').text(artistList[2]);
-					$('#song4 .song-artist').text(artistList[3]);
+								'name': 'Dont let me down',
+								'artist': 'Chainsmokers',
+								'album': 'Collage',
+								'duration': '3:28',
+								'fileName': 'song2.mp3'
+							},
+							{
+								'name': 'My heart will go on',
+								'artist': 'Celine Dion',
+								'album': 'Titanic',
+								'duration': '5:10',
+								'fileName': 'song3.mp3'
+							},
+							{
+								'name': 'Despacito',
+								'artist': 'Luis Fonsi',
+								'album': 'Despacito',
+								'duration': '4:41',
+								'fileName': 'song4.mp3'
+							}]
+
+								
+					for(var i =0; i < songlist.length;i++) {
+						var obj = songs[i];
+							var name = '#song' + (i+1);
+							var song = $(name);
+							song.find('.song-name').text(obj.name);
+							song.find('.song-artist').text(obj.artist);
+							song.find('.song-album').text(obj.album);
+							song.find('.song-length').text(obj.duration); 
+							 addSongNameClickEvent(obj.fileName,i+1)
+						}
 					
 					
 		$('.welcome-screen button').on('click', function() {

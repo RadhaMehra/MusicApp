@@ -85,6 +85,8 @@
 					},1000);
 					
 					$('#songs').DataTable({
+						"scrollY":   "200px",
+						"scrollCollapase" : true ,
 						paging: false
 					});
 									
@@ -235,5 +237,24 @@
 				$('.main').addClass('hidden');
             $('.welcome-screen').removeClass('hidden');
 			
+			});
+			
+			$('.fa-volume-up').on('click', function() {
+				if ($("audio").prop('muted', true)){ 
+				$('.fa-volume-up').removeClass('fa-volume-up').addClass('fa-volume-off');
+				
+				}
+				else {
+					console.log(mute);
+					$("audio").prop('muted', false);
+				    $('.fa-volume-up').removeClass('fa-volume-off').addClass('fa-volume-up');
+				}
+			});
+			
+			function toggleMuteAudio(){
+				$(".fa-volume-up").prop("muted",!$("fa-volume-off").prop("muted"));
+				}
+				$('.fa-volume-up').on('click', function() {
+				toggleMuteAudio();
 			});
 			

@@ -1,6 +1,7 @@
 		var currentSongNumber = 1;
 		var willLoop = 0;
 		var willShuffle = 0;
+		var mute = 0;
 	
 		function randomExcluded(min, max, excluded) {
     var n = Math.floor(Math.random() * (max-min) + min);
@@ -28,6 +29,17 @@
 							$('.current-song-name').text(songobj.name);
 							$('.current-song-album').text(songobj.album);
 						}
+						
+						
+						function UpdateTimer() {
+						var song = document.querySelector('audio');
+						var ct = song.currentTime;
+						var td = song.duration;
+						var percentage = (ct/td)*100;
+						$('.progress-filled').css('width', percentage+ "%");
+						}
+						
+						
 		
 					function fancyTimeFormat(time)
 			{   
@@ -73,7 +85,7 @@
 				song.currentTime = song.duration - 5;
 				}
 				
-					window.onload = function() {
+			window.onload = function() {
 						changeCurrentSongDetails(songs[0]);    // update the 1st details of the 'songs object' when the window is loading
 					//$('#song1 .song-name').text(songlist[0]);
 					//$('#song2 .song-name').text(songlist[1]);
@@ -82,11 +94,10 @@
 					updateCurrentTime(); 
 					setInterval(function() {
 					updateCurrentTime();
+					UpdateTimer();
 					},1000);
 					
 					$('#songs').DataTable({
-						"scrollY":   "200px",
-						"scrollCollapase" : true ,
 						paging: false
 					});
 									
@@ -114,7 +125,7 @@
 				// var songName2 = 'Never Give Up';
 				 //var songName3 = 'My Heart will go on';
 				 //var songName4 = 'Despacito';
-				 var songlist=[ 'Jaanu', 'Dont let me down', 'My Heart will go on', 'Despacito'];
+				 var songlist=[ 'Rockabye', 'Dont let me down', 'My Heart will go on', 'Despacito'];
 				 //var fileName=['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
 				 //var artistList = ['Garry Sandhu', 'Chainsmokers', 'Celine Dion', 'Luis Fonsi']; 	
 				// var albumList = ['Jaanu','Collage','Titanic','Despacito'];
@@ -126,9 +137,9 @@
 								//toggleSong();
 								//}
 						var songs = [{
-								'name': 'Jaanu',
-								'artist': 'Garry Sandhu',
-								'album': 'Jaanu',
+								'name': 'Rockabye',
+								'artist': ' Clean Bandit',
+								'album': 'Rockabye Baby',
 								'duration': '4:13',
 							   'fileName': 'song1.mp3',
 							   'image' : 'song1.jpg'
@@ -208,7 +219,7 @@
 									$('.play-icon').removeClass('fa-pause').addClass('fa-play');
 									audio.currentTime = 0;
 								}
-							})
+							});
 							
 							
 		$('.welcome-screen button').on('click', function() {
@@ -239,22 +250,35 @@
 			
 			});
 			
-			$('.fa-volume-up').on('click', function() {
-				if ($("audio").prop('muted', true)){ 
-				$('.fa-volume-up').removeClass('fa-volume-up').addClass('fa-volume-off');
-				
-				}
-				else {
-					console.log(mute);
-					$("audio").prop('muted', false);
-				    $('.fa-volume-up').removeClass('fa-volume-off').addClass('fa-volume-up');
-				}
-			});
+			$('.fa-volume-up').on('click',function(){
+			 var audio = document.querySelector('audio');
+			 if(mute == 0){
+				 audio.muted = true;
+				 mute = 1;
+				 console.log('mute');
+				 $('.mute').removeClass('fa-volume-up').addClass('fa-volume-off');
+			 }
+			 else {
+				  audio.muted = false;
+				  mute = 0;
+				  console.log('unmute');
+				  $('.mute').removeClass('fa-volume-off').addClass('fa-volume-up');
+			 }
+		})
+
+		$('.fa-step-forward').on('click', function() {
+			var audio = document.querySelector('audio');
+		if(currentSongNumber < 4) {
+        var nextSongobj = songs[currentSongNumber];
+        audio.src = nextSongobj.fileName; // Change Soure
+        toggleSong(); // Play Next Song
+        changeCurrentSongDetails(nextSongobj); // Update Image
+        currentSongNumber = currentSongNumber + 1; // Change State
+		console.log('nextSong');
+		}
+		else {
 			
-			function toggleMuteAudio(){
-				$(".fa-volume-up").prop("muted",!$("fa-volume-off").prop("muted"));
-				}
-				$('.fa-volume-up').on('click', function() {
-				toggleMuteAudio();
-			});
-			
+		audio.currentTime = 0;
+		console.log('nextSong');
+    }
+		});

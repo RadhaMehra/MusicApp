@@ -31,7 +31,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	background:url("http://www.philippebourbeau.net/wp-content/uploads/2017/03/Music-controller.jpeg");
+	background:url("https://tinyurl.com/y9752msm");
 	background-size:cover;
 	background-position:center;
 }
@@ -43,7 +43,7 @@ h1 {
     flex-direction: column;
     color: white;
    /* background-color: #1f1f1f;*/
-	background:url("https://tinyurl.com/y8fdfdhe");
+	background:url("http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/004dd-desktop-3629250-1920x1080.jpg");
 	background-size:cover;
 	background-position:center;
 }
@@ -83,7 +83,7 @@ h1 {
 
 .error {
     border: 2px solid red;
-	
+
 }
 
 .progress-wrapper {
@@ -94,7 +94,7 @@ h1 {
 }
 
 .progress-wrapper span {
-    color: #959595;
+    color: white;
 }
 
 .player-progress {
@@ -111,13 +111,13 @@ h1 {
     height: 8px;
     border-radius: 4px;
     width: 0;
-
+	cursor: pointer;
 }
 
 .main .content {
     width: 800px;
     margin: 2rem auto;
-	
+
 }
 
 .list-headers {
@@ -145,7 +145,7 @@ h1 {
     border-bottom: 1px solid rgba(255,255,255,0.5);
     min-height: 30px;
     cursor: pointer;
-	color:cyan;
+	   color: #E55B0C  ;
 }
 
 .song > span {
@@ -163,7 +163,7 @@ h1 {
 }
 
 .song-list .song:hover {
-    background-color: #282828;
+    background-color: #28282;
 }
 
 
@@ -195,30 +195,32 @@ h1 {
 .current-song-album {
     margin-top: 0.4rem;
 	font-size: 1.4rem;
-	
-}	
-	
+
+}
+
 .back-button {
 	background:none;
 	font-size:25px;
 	color:white;
 	border:0px;
-}	
+  margin-left: 10px;
+}
 #name-input {
-	
+
 	font-size:15px;
 }
 
  button {
-	
-	padding:3px 3px 2px 3px; 
+
+	padding:3px 3px 2px 3px;
 	border:0px;
-	
+
 }
 
            /*DataTables overrides*/
 table.dataTable tbody tr {
     background-color: initial;
+    color:white;
 }
 
 table.dataTable tbody tr:hover {
@@ -242,11 +244,12 @@ td {
     font-size: 16px;
 	 border-radius: 15px;
     border: 0px;
+    outline: none;
 }
 .controls {
 		position:absolute;
 		bottom:0px;
-	
+
 }
 
 .player-buttons .fa {
@@ -259,4 +262,44 @@ td {
 
 .fa-volume-up {
 cursor: pointer;
+}
+
+#slider {
+width:80px;
+
+}
+.a {
+  display:inline;
+  margin:0px 30px;
+  border-radius:17px;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+  background-color:  #F5B041;
+  box-shadow: 0 9px #A2D9CE;
+
+
+}
+.a:hover {
+  background-color: #F3C7AE;
+}
+
+.a:active {
+
+  box-shadow: 0 2px #F1948A;
+  transform: translateY(4px);
+}
+
+.delay{
+padding-left:20px;
+padding-right:20px;
+
+}
+.chorus {
+padding-right:17px;
+padding-left:17px;
+
+}
+.header-para {
+  margin-left: :100px !important
 }

@@ -287,7 +287,7 @@ function setvolume() {						//volumeslider function
 });
 
 						$('.fa-step-forward').on('click', function() {
-							$('.fa-step-forward').toggleClass('disabled')			//play and pause next song by clicking the next song
+							//$('.fa-step-forward').toggleClass('disabled')			//play and pause next song by clicking the next song
 							console.log('nextsong');
 						var audio = document.querySelector('audio');
 						var nextSongobj = songs[currentSongNumber];
@@ -301,7 +301,7 @@ function setvolume() {						//volumeslider function
 						});
 
 						$('.fa-step-backward').on('click', function() {   			//play and pause the previous song
-							$('.fa-step-backward').toggleClass('disabled')
+							//$('.fa-step-backward').toggleClass('disabled')
 
 
 						var audio = document.querySelector('audio');

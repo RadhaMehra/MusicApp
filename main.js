@@ -201,7 +201,7 @@ function setvolume() {						//volumeslider function
 							 addSongNameClickEvent(obj,i+1)
 						}
 
-							$('.fa-repeat').on('click',function() {						//created to add ability the of repeat the songs in loop
+							$('.fa-repeat').on('click',function() {						//created to add the ability  of repeat the songs in loop
 							$('.fa-repeat').toggleClass('disabled')
 							willLoop = 1 - willLoop;
 							});
@@ -315,8 +315,18 @@ function setvolume() {						//volumeslider function
 
 						});
 
-
-
 						$('#slider').on('mousemove', function() {								// increase and decrease the volume by volume slider
 								setvolume();
 						});
+						$('body').change(function(){
+							//console.log('img');
+						 var body = document.querySelector('body');
+						 var background =['song1.jpg', 'song2.jpg', 'song3.jpg', 'song4.jpg','song5.jpg', 'song6.jpg'];
+						 var current = 0;
+						 for(i=0; i<background.length; i++) {
+						 $('body').css( 'background', background[i]) ;
+						 console.log('img');
+						 current= background[i]+1;
+						 setTimeout(10000);
+						 }
+			});

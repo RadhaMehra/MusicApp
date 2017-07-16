@@ -107,6 +107,8 @@ function setvolume() {						//volumeslider function
 					}
 						function addSongNameClickEvent(songobj,position) {				//ability to click on any song to play nd pause
 							var songName = songobj.fileName;
+							var playingnextsong = 0;
+							playingnextsong = currentSongNumber-1;
 							var id = '#song' + position;
 						$(id).click(function() {
 						var audio = document.querySelector('audio');
@@ -221,14 +223,14 @@ function setvolume() {						//volumeslider function
 									changeCurrentSongDetails(nextSongobj);
 									currentSongNumber = nextSongNumber;
 								}
-								else if(currentSongNumber < 6) {
+								else if(currentSongNumber < 6) {						// ye code tb tk chlega jab tk currentSongNumber ki value 5 tk rhegi otherwise ye else wale part me chla jaega
 									var nextSongobj = songs[currentSongNumber];
 									audio.src = nextSongobj.fileName;
 									toggleSong();
 									changeCurrentSongDetails(nextSongobj);
 									currentSongNumber = currentSongNumber + 1;
 								}
-								else if(willLoop == 1) {
+								else if(willLoop == 1) {						// ye delhega agr willLoop ki value 1 hai to fir se pehla gana play kr dega basically gana loop me chlta rhega kbi band nhi hoga jb tk repeat icon ko disabled nhi kr dete
 									var nextSongobj = songs[0];
 									audio.src = nextSongobj.fileName;
 									toggleSong();
@@ -244,13 +246,15 @@ function setvolume() {						//volumeslider function
 
 		$('.welcome-screen button').on('click', function() {       //by filling the input field go to the next or main page
         var name = $('#name-input').val();
-        if (name.length > 2) {
+        if (name.length > 3) {
             var message = "Welcome to Songify, " + name;
             $('.main .user-name').text(message);
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
-        } else {
-					var error ="Name Should be Greater than two"
+
+        }
+				else {
+					var error ="Name Should be Greater than 3"
             $('#name-input').addClass('error');
 						$('span').removeClass('hidden').text(error);
         }
@@ -294,7 +298,7 @@ function setvolume() {						//volumeslider function
 							var nextSongobj = songs[currentSongNumber];
 							audio.src = nextSongobj.fileName;
 							toggleSong();
-						// addSongNameClickEvent(songobj,position)
+					//	addSongNameClickEvent(songobj,position)
 							changeCurrentSongDetails(nextSongobj);
 							currentSongNumber = currentSongNumber + 1;
 							if (currentSongNumber == 6){

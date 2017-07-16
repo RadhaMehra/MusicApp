@@ -250,7 +250,9 @@ function setvolume() {						//volumeslider function
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
         } else {
+					var error ="Name Should be Greater than two"
             $('#name-input').addClass('error');
+						$('span').removeClass('hidden').text(error);
         }
     });
     $('.play-icon').on('click', function() {						//play and pause the song
@@ -292,16 +294,20 @@ function setvolume() {						//volumeslider function
 							var nextSongobj = songs[currentSongNumber];
 							audio.src = nextSongobj.fileName;
 							toggleSong();
+						// addSongNameClickEvent(songobj,position)
 							changeCurrentSongDetails(nextSongobj);
 							currentSongNumber = currentSongNumber + 1;
+							if (currentSongNumber == 6){
+							$('.fa-step-forward').toggleClass('disabled')	;
+							 $('.play-icon').removeClass('fa-play').addClass('fa-pause');
+						 }
+						});
 
-				 });
-				 $('audio').on('ended', function() {
-            toggleSong();
-
-				 });
+						$('audio').on('ended', function() {
+					 		toggleSong();
 
 
+					 });
 						$('.fa-step-backward').on('click', function() {   			//play and pause the previous song
 							//$('.fa-step-backward').toggleClass('disabled')
 
@@ -312,21 +318,12 @@ function setvolume() {						//volumeslider function
 						toggleSong();
 						changeCurrentSongDetails(nextSongobj);
 						currentSongNumber = currentSongNumber - 1;
-
-
+						});
+						$('audio').on('ended', function() {
+							 toggleSong();
 
 						});
 
 						$('#slider').on('mousemove', function() {								// increase and decrease the volume by volume slider
 								setvolume();
 						});
-
-
-
-						$('.welcome-screen').on('keypress',function(event) {   //got to next page by "enter"
-						if (event.keyCode == 13)
-						{
-							$('.welcome-screen').addClass('hidden');
-							$('.main').removeClass('hidden');
-						}
-					});

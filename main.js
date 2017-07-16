@@ -139,7 +139,7 @@ function setvolume() {						//volumeslider function
 								//addSongNameClickEvent(fileName[i],i+1);
 								//toggleSong();
 								//}
-						var songs = [{																	//created array of objects
+								var songs = [{																	//created array of objects
 								'name': 'Rockabye',
 								'artist': ' Clean Bandit',
 								'album': 'Rockabye Baby',
@@ -288,17 +288,19 @@ function setvolume() {						//volumeslider function
 
 						$('.fa-step-forward').on('click', function() {
 							//$('.fa-step-forward').toggleClass('disabled')			//play and pause next song by clicking the next song
-							console.log('nextsong');
-						var audio = document.querySelector('audio');
-						var nextSongobj = songs[currentSongNumber];
-						audio.src = nextSongobj.fileName;
-						toggleSong();
-						//console.log('nextsong');
-						changeCurrentSongDetails(nextSongobj);
-						currentSongNumber = currentSongNumber + 1;
+							var audio = document.querySelector('audio');
+							var nextSongobj = songs[currentSongNumber];
+							audio.src = nextSongobj.fileName;
+							toggleSong();
+							changeCurrentSongDetails(nextSongobj);
+							currentSongNumber = currentSongNumber + 1;
 
+				 });
+				 $('audio').on('ended', function() {
+            toggleSong();
 
-						});
+				 });
+
 
 						$('.fa-step-backward').on('click', function() {   			//play and pause the previous song
 							//$('.fa-step-backward').toggleClass('disabled')
@@ -318,15 +320,13 @@ function setvolume() {						//volumeslider function
 						$('#slider').on('mousemove', function() {								// increase and decrease the volume by volume slider
 								setvolume();
 						});
-						$('body').change(function(){
-							//console.log('img');
-						 var body = document.querySelector('body');
-						 var background =['song1.jpg', 'song2.jpg', 'song3.jpg', 'song4.jpg','song5.jpg', 'song6.jpg'];
-						 var current = 0;
-						 for(i=0; i<background.length; i++) {
-						 $('body').css( 'background', background[i]) ;
-						 console.log('img');
-						 current= background[i]+1;
-						 setTimeout(10000);
-						 }
-			});
+
+
+
+						$('.welcome-screen').on('keypress',function(event) {   //got to next page by "enter"
+						if (event.keyCode == 13)
+						{
+							$('.welcome-screen').addClass('hidden');
+							$('.main').removeClass('hidden');
+						}
+					});

@@ -4,8 +4,9 @@
 		var willLoop = 0;
 		var willShuffle = 0;
 		var mute = 0;
-
-
+var Playingnumber = 0  ;
+var shuffle=0;
+var equal = 0;
 			//functions
 
 		function randomExcluded(min, max, excluded) {					//shuffling function
@@ -21,7 +22,14 @@ function setvolume() {						//volumeslider function
 }
 
 
-
+function changeSong() //we have made a machine jispe 2 buttons diye hai songName and position ke liye
+{
+var music =  songs[Playingnumber].fileName;
+var song = document.querySelector("audio");
+song.src = music;
+toggleSong();
+changeCurrentSongDetails(songs[Playingnumber])
+}
 
 	function toggleSong() {							//function to play pause any song
 		var song = document.querySelector('audio');
@@ -294,42 +302,68 @@ function setvolume() {						//volumeslider function
 	 }
 });
 
-						$('.fa-step-forward').on('click', function() {
-							//$('.fa-step-forward').toggleClass('disabled')			//play and pause next song by clicking the next song
-							var audio = document.querySelector('audio');
-							var nextSongobj = songs[currentSongNumber];
-							audio.src = nextSongobj.fileName;
-							toggleSong();
-					//	addSongNameClickEvent(songobj,position)
-							changeCurrentSongDetails(nextSongobj);
-							currentSongNumber = currentSongNumber + 1;
-							if (currentSongNumber == 6){
-							$('.fa-step-forward').toggleClass('disabled')	;
-							 $('.play-icon').removeClass('fa-play').addClass('fa-pause');
-						 }
-						});
 
-						$('audio').on('ended', function() {
-					 		toggleSong();
+$(".fa-step-forward").click(function(){
+
+if(shuffle==1)
+{
+var audio = document.querySelector('audio');
+var nextSongNumber = randomExcluded(0,3,Playingnumber); // Calling our function from Stackoverflow
+
+var nextSongObj = songs[nextSongNumber];
+audio.src = nextSongobj.fileName;
+toggleSong();
+changeCurrentSongDetails(nextSongobj);
+Playingnumber = nextSongNumber;
 
 
-					 });
-						$('.fa-step-backward').on('click', function() {   			//play and pause the previous song
-							//$('.fa-step-backward').toggleClass('disabled')
+}
 
 
-						var audio = document.querySelector('audio');
-						var nextSongobj = songs[currentSongNumber];
-						audio.src = nextSongobj.fileName;
-						toggleSong();
-						changeCurrentSongDetails(nextSongobj);
-						currentSongNumber = currentSongNumber - 1;
-						});
-						$('audio').on('ended', function() {
-							 toggleSong();
+else {
 
-						});
+if(Playingnumber == songs.length-1){
+Playingnumber = 0;
+changeSong();
+}
 
+else {
+console.log("two");
+console.log(Playingnumber);
+Playingnumber++;
+changeSong();
+}
+
+}
+
+})
+
+
+
+
+$(".fa-step-backward").click(function(){
+
+if(Playingnumber == 0){
+console.log("one");
+Playingnumber = (songs.length-1);
+changeSong();
+
+
+
+
+}
+
+else {
+console.log("two");
+console.log(Playingnumber);
+Playingnumber--;
+changeSong();
+}
+
+
+
+
+})
 						$('#slider').on('mousemove', function() {								// increase and decrease the volume by volume slider
 								setvolume();
 						});

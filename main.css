@@ -17,6 +17,7 @@ body {
 h1 {
     border: 0;
     margin: 0;
+    font-size: 50px;
 }
 
 .wrapper {
@@ -32,7 +33,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	background:url("https://tinyurl.com/y9752msm");
+	background:url("forest.gif");
 	background-size:cover;
 	background-position:center;
 }
@@ -197,7 +198,6 @@ h1 {
 	font-size: 1.4rem;
 
 }
-
 .back-button {
 	background:none;
 	font-size:25px;
@@ -205,16 +205,32 @@ h1 {
 	border:0px;
   margin-left: 10px;
 }
+
+
 #name-input {
-
+  border:0px;
+  padding:5px;
+  background-color:#e6e6fa;
+  border-radius:5px;
 	font-size:15px;
+  cursor:pointer;
 }
+#name-input:hover {
 
- button {
 
-	padding:3px 3px 2px 3px;
+
+  background-color:#ffdab9;
+}
+#go {
+
+	padding:8px;
 	border:0px;
-
+  border-radius: 5px;
+  background-color:  #F5B041;
+  position:relative;
+  top:10px;
+  cursor:pointer;
+  left:70px;
 }
 
            /*DataTables overrides*/
@@ -269,6 +285,9 @@ width:80px;
 
 }
 .a {
+
+	border:0px;
+
   display:inline;
   margin:0px 30px;
   border-radius:17px;
@@ -308,4 +327,19 @@ padding-left:17px;
 color:white;
 background-color:red;
 padding:3px;
+}
+h3 {
+
+font-size: 30px;
+
+}
+
+@media (max-width: 728px) {
+	.header-para {
+    display:none;
+  }
+  .back-button {
+    display:none;
+
+  }
 }

@@ -252,11 +252,13 @@ function setvolume() {						//volumeslider function
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
 
+
         }
 				else {
-					var error ="Name Should be Greater than 3"
+					var error ="Name Should be Greater than 3";
+					$('#error1').removeClass('hidden').text(error);
             $('#name-input').addClass('error');
-						$('span').removeClass('hidden').text(error);
+
         }
     });
     $('.play-icon').on('click', function() {						//play and pause the song

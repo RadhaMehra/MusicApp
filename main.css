@@ -1,3 +1,5 @@
+@import url(vegas.css);
+
 
 *,
 *:after,
@@ -23,7 +25,7 @@ h1 {
 .wrapper {
     height: 100%;
     width: 100%;
-    background-color: #BBB;
+
 }
 
 .welcome-screen {
@@ -45,9 +47,7 @@ h1 {
     flex-direction: column;
     color: white;
    /* background-color: #1f1f1f;*/
-	background:url("http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/004dd-desktop-3629250-1920x1080.jpg");
-	background-size:cover;
-	background-position:center;
+
 }
 
 .main header {
